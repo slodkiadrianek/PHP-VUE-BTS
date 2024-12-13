@@ -10,12 +10,13 @@ if(!empty($_POST)){
         $exist->bind_param('s', $data['email_klienta']);
         $exist->execute();
         $results=$exist->get_result();
+        $existData = [];
         while($row = $results->fetch_assoc()){
             $existData[] = $row;
         }
         $exist->close();
     }
-    if(count($existData)> 0){
+    if(count($existData)> 0 || $existData){
         $_SESSION['status'] = 'Użytkownik już istnieje.';
         header('location: ../register.php');
     }else{
@@ -34,7 +35,6 @@ if(!empty($_POST)){
             haslo_klienta
         ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if($query){
-            var_dump(...$values);
             $query->bind_param('sssssssss', ...$values);
             $query->execute();
             $query->close();

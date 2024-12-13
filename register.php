@@ -3,27 +3,52 @@ session_start();
 require __DIR__ . "/views/header.php";
 require __DIR__ . "/db/connections.php"
 ?>
-<body class="bg-dark">
-    <header>
-        <h1 class="text-light text-center">Rejestracja</h1>
-    </header>
-    <main>
-        <?php 
+<body >
+        <main class="container d-flex justify-content-center">
+            <?php 
         if($_SESSION){
             echo $_SESSION['status'];
             unset($_SESSION['status']);
         }?>
-        <form class="d-flex flex-column align-items-center " action="./db/register.db.php" method="post">
-            <input class="m-2 rounded border p-2" type="text" name="imie_klienta" placeholder="Wpisz imię">
-            <input class="m-2 rounded border p-2" type="text" name="nazwisko_klienta" placeholder="Wpisz nazwisko">
-            <input class="m-2 rounded border p-2" type="text" name="ulica_klienta" placeholder="Wpisz ulicę">
-            <input class="m-2 rounded border p-2" type="text" name="numer_domu_klienta" placeholder="Wpisz numer domu">
-            <input class="m-2 rounded border p-2" type="text" name="miasto_klienta" placeholder="Wpisz miasto zamieszkania">
-            <input class="m-2 rounded border p-2" type="text" name="kod_klienta" id="" placeholder="Wpisz kod miasta">
-            <input class="m-2 rounded border p-2" type="tel" name="telefon_klienta" id="" placeholder="Wpisz numer telefonu">
-            <input class="m-2 rounded border p-2" type="email" name="email_klienta" id="" placeholder="Wpisz email">
-            <input class="m-2 rounded border p-2" type="password" name="haslo_klienta" min="8" max="20" placeholder="Wpisz hasło" >
-            <button type="submit" class="btn btn-primary">Zarejestruj się</button>
+        <form style="width: 50%;" class="border border-dark rounded p-3 m-1"   action="./db/register.db.php" method="post">
+            <h1 >Rejestracja</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1" >Imię</label>
+                <input type="text" name="imie_klienta" class="form-control"  placeholder="Wpisz imię" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" >Nazwisko</label>
+                <input type="text" name="nazwisko_klienta" class="form-control"  placeholder="Wpisz nazwisko" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" >Ulica zamieszkania</label>
+                <input type="text" name="ulica_klienta" class="form-control"  placeholder="Wpisz ulicę zamieszkania" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" >Numer domu</label>
+                <input type="text" name="numer_domu_klienta" class="form-control"  placeholder="Wpisz numer domu" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" >Miasto</label>
+                <input type="text" name="miasto_klienta" class="form-control"  placeholder="Wpisz miasto zamieszkania" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" >Kod pocztowy</label>
+                <input type="text" name="kod_klienta" class="form-control"  placeholder="Wpisz kod pocztowy" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" >Numer telefonu</label>
+                <input type="tel" name="telefon_klienta" class="form-control"  placeholder="Wpisz numer telefonu" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" >Adres email</label>
+                <input type="email" name="email_klienta" class="form-control"  placeholder="Wpisz email" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" >Hasło</label>
+                <input type="password" class="form-control" name="haslo_klienta" id="exampleInputPassword1" placeholder="Wpisz hasło" required>
+            </div>
+        <button type="submit" class="btn btn-primary">Zarejestruj się</button>
         </form>
     </main>
 </body>
