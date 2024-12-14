@@ -14,4 +14,7 @@ $title = "Wypożyczalnia samochodów";
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
       <!-- Bootstrap działa standardowo z jQuery, ta wersja biblioteki integruje BS z VUE: -->
     <script src="https://unpkg.com/bootstrap-vue@2.21.0/dist/bootstrap-vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>

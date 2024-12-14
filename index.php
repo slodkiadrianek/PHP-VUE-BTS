@@ -8,12 +8,12 @@ require __DIR__ . "/views/header.php"
     <main class="d-flex flex-column  align-items-center">
         <div class="d-flex flex-column  justify-content-center align-content-center">
             <h2 class="text-center text-light">Użytkownik</h2>
-            <a href="login.php" type="button" class="btn btn-primary m-2"  >Zaloguj się</a>
+            <a href="user/login.php" type="button" class="btn btn-primary m-2"  >Zaloguj się</a>
             <a href="register.php" type="register" class="btn btn-primary m-2">Zarejestruj się</a>
         </div>
         <div class="d-flex flex-column  justify-content-center align-content-center">
             <h2 class="text-center text-light">Pracownik</h2>
-            <a href="login" type="button" class="btn btn-primary m-2"  >Zaloguj się</a>
+            <a href="employee/login.php" type="button" class="btn btn-primary m-2"  >Zaloguj się</a>
         </div>
     </main>
     <script>

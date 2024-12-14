@@ -7,8 +7,7 @@ if(!empty($_POST['error_type'])){
     if($query){
         $query->bind_param('ss', $_POST['error_type'], $_POST['error_description']);
         $query -> execute();
-        $_SESSION['status']['repo'] = 'true';
-        header('location: /PHP-VUE-BTS/dashboard/support.php');
+        $_SESSION['status']['repo'] = ['true', 'Poprawnie zgłoszono problem'];
+        header('location: /PHP-VUE-BTS/user/dashboard/support.php');
     }
 }
-//Nie działa strona

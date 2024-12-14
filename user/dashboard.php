@@ -1,16 +1,16 @@
 <?php 
 session_start();
-require __DIR__ . "/views/header.php"
+require  "../views/header.php"
 ?>
 <body style="overflow:hidden;">
     <?php 
             $dashboardTitle = "Panel Użytkownika";
-            require __DIR__ . '/views/dashboardHeader.php';
+            require '../views/dashboardHeader.php';
     ?>
     <main id="app" class="d-flex flex-row" style="width: 100%; height:95vh; ">
         <?php 
         $whichActive = 'userPanel';
-        require __DIR__ . '/views/sideBar.php';
+        require  '../views/sideBar.php';
         ?>
         <section style="width: 80%;">
             <div class="container m-1">
@@ -49,7 +49,7 @@ require __DIR__ . "/views/header.php"
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm mr-5">
-                        <form action="./db/logout.db.php" method="post">
+                        <form action="../db/logout.db.php?type=user" method="post">
                             <button class="btn btn-danger" type="submit">Wyloguj się</button>
                         </form>
                     </div>

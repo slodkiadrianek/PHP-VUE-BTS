@@ -1,16 +1,16 @@
 <?php 
 session_start();
-require  "../views/header.php";
+require  "../../views/header.php";
 ?>
 <body style="overflow:hidden;">
     <?php 
         $dashboardTitle = "Pomoc techniczna";
-        require '../views/dashboardHeader.php';
+        require '../../views/dashboardHeader.php';
     ?>
 <main id="app" class="d-flex flex-row" style="width: 100%; height:95vh; ">
         <?php 
             $whichActive = 'support';
-            require "../views/sideBar.php";
+            require "../../views/sideBar.php";
         ?>
         <section class="" style="width:80%;">
             <?php if(!empty($_SESSION['status']['repo'])): ?>
@@ -19,7 +19,7 @@ require  "../views/header.php";
                     Poprawanie zgłoszono problem
                 </div>
              <?php endif; ?>
-        <form style="width: 100%;" class="border border-dark rounded p-3  m-1"   action="../db/addError.php" method="post">
+        <form style="width: 100%;" class="border border-dark rounded p-3  m-1"   action="../../db/addError.php" method="post">
             <h2 >Formualarz zgłaszania błędów</h2>
             <div class="form-group mt-2">
             <label for="typeOfError">Wybierz rodzaj problemu</label>

@@ -2,12 +2,18 @@
 session_start();
 require __DIR__ . '/connections.php';
 require  "../inc/function.php";
-var_dump($_SESSION['user']);
 if(!empty($_POST) && !empty($_GET)){
+    $type = $_GET['type'];
+    $from = 'klienci';
+    $sufix = 'klienta';
+    if($_GET['type'] === 'employee'){
+        $from= 'pracownicy';
+        $sufix = 'pracownika';
+    }
     $data = dataCheck($_POST);
-    $query  = $conn -> prepare("Select * from {$_GET['type']} where email_klienta = ?");
+    $query  = $conn -> prepare("Select * from {$from} where email_{$sufix} = ?");
     if($query){
-        $query->bind_param('s', $data['email_klienta']);
+        $query->bind_param('s', $data["email_{$sufix}"]);
         $query->execute();
         $results = $query->get_result();
         $existData = [];
@@ -16,19 +22,19 @@ if(!empty($_POST) && !empty($_GET)){
         }
         $query->close();
     }
-    if(count($existData)  ===0){
+    if(count($existData)  === 0){
         $_SESSION['status']['email'] = 'Użytkownik z podanym adresem nie istnieje';
-        header('location: ../login.php');
+        header("location: ../{$type}/login.php");
     }
-    $passwordCheck = password_verify($data['haslo_klienta'], $existData['haslo_klienta']);
+    $passwordCheck = password_verify($data["haslo_{$sufix}"], $existData["haslo_{$sufix}"]);
     if(!$passwordCheck){
         $_SESSION['status']['pass'] = 'Podane hasło jest nieprawidłowe';
-        header('location: ../login.php');
+        header("location: ../{$type}/login.php");
         exit;
     }
-    $_SESSION['user'] = $existData;
-    header('location: ../userDashboard.php');
+    $_SESSION[$type] = $existData;
+    header("location: ../{$type}/dashboard.php");
 }
 $conn->close();
-header('location: ../login.php');
+// header('location: ../index.php');
 
